@@ -1,0 +1,38 @@
+{% extends "./base.html" %}
+
+{% block title %} ASPIDA LTDA {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h2>Edicion de Equipos</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/equipments/editEquipment/" method="post">{% csrf_token %}
+                        <div class="form-group mb-3">
+                            <input type="text" id="code" name="code" value="{{ equipment.code }}" class="form-control"
+                                   readonly
+                                   placeholder="Codigo"
+                                   maxlength="12" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" id="brand" name="brand" class="form-control" placeholder="Marca"
+                                   value="{{ equipment.brand }}"
+                                   maxlength="50" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" id="sku" name="sku" class="form-control" value="{{ equipment.sku }}"
+                                   placeholder="# de serie"
+                                   maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success col-12 text-white">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
